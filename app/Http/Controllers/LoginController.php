@@ -4,50 +4,43 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use RealRashid\SweetAlert\Facades\Alert; // Import facade SweetAlert
+use Illuminate\Support\Facades\Validator;
 
 class LoginController extends Controller
 {
-    /**
-     * Show the login form.
-     *
-     * @return \Illuminate\View\View
-     */
     public function showLoginForm()
     {
         return view('auth.login');
     }
 
-    /**
-     * Handle an authentication attempt.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\RedirectResponse
-     */
     public function login(Request $request)
     {
+        $validator = Validator::make($request->all(), [
+            'email' => 'required|email',
+            'password' => 'required|string|min:8',
+        ]);
+
+        if ($validator->fails()) {
+            return redirect()->back()->withErrors($validator)->withInput();
+        }
+
         $credentials = $request->only('email', 'password');
 
         if (Auth::attempt($credentials)) {
-            // Authentication passed...
-            Alert::success('Login Successful', 'Welcome back!');
-            return redirect()->intended('dashboard');
+            $user = Auth::user();
+            if ($user->role === 'admin') {
+                return redirect()->route('admin.dashboard');
+            } else {
+                return redirect()->route('home');
+            }
         }
 
-        // Authentication failed...
-        Alert::error('Login Failed', 'The provided credentials do not match our records.');
-        return back();
+        return redirect()->back()->with('error', 'Invalid credentials');
     }
 
-    /**
-     * Handle logout.
-     *
-     * @return \Illuminate\Http\RedirectResponse
-     */
     public function logout()
     {
         Auth::logout();
-        Alert::info('Logged Out', 'You have been logged out.');
-        return redirect('/');
+        return redirect()->route('home');
     }
 }

@@ -83,7 +83,8 @@
               <!-- /Logo -->
               <h4 class="mb-2">Selamat datang di NutriGuide! 👋</h4>
 
-              <form id="formAuthentication" class="mb-3"action="{{ route('login.post') }}" method="POST">
+              <form id="formAuthentication" class="mb-3"action="{{ route('login') }}" method="POST">
+
                 @csrf
 
                 <div class="mb-3">

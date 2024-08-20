@@ -40,61 +40,88 @@
                         </div>
                         <h4 class="mb-2">NutriGuide</h4>
 
-                        <form id="formAuthentication" class="mb-3" action="{{ route('register.post') }}"
-                            method="POST" enctype="multipart/form-data">
+                        <form id="formAuthentication" class="mb-3" action="{{ route('register.post') }}" method="POST" enctype="multipart/form-data">
                             @csrf
-
-                           
-
+                        
                             <div class="mb-3">
                                 <label for="nama" class="form-label">Nama Lengkap</label>
-                                <input type="text" class="form-control" id="nama" name="nama"
-                                    placeholder="Enter your name" value="{{ old('nama') }}" required autofocus />
+                                <input type="text" class="form-control" id="nama" name="nama" placeholder="Enter your name" value="{{ old('nama') }}" required autofocus />
                                 @error('nama')
                                     <span class="text-danger">{{ $message }}</span>
                                 @enderror
                             </div>
+                            
                             <div class="mb-3">
                                 <label for="email" class="form-label">Email</label>
-                                <input type="text" class="form-control" id="email" name="email"
-                                    placeholder="Enter your email" value="{{ old('email') }}" required />
+                                <input type="text" class="form-control" id="email" name="email" placeholder="Enter your email" value="{{ old('email') }}" required />
                                 @error('email')
                                     <span class="text-danger">{{ $message }}</span>
                                 @enderror
                             </div>
-                          
+                            
+                            <div class="mb-3">
+                                <label for="nip" class="form-label">NIP</label>
+                                <input type="text" class="form-control" id="nip" name="nip" placeholder="Enter your NIP" value="{{ old('nip') }}" required />
+                                @error('nip')
+                                    <span class="text-danger">{{ $message }}</span>
+                                @enderror
+                            </div>
+                            
+                            <div class="mb-3">
+                                <label for="tanggal_lahir" class="form-label">Tanggal Lahir</label>
+                                <input type="date" class="form-control" id="tanggal_lahir" name="tanggal_lahir" value="{{ old('tanggal_lahir') }}" required />
+                                @error('tanggal_lahir')
+                                    <span class="text-danger">{{ $message }}</span>
+                                @enderror
+                            </div>
+                            
+                            <div class="mb-3">
+                                <label for="alamat" class="form-label">Alamat</label>
+                                <textarea class="form-control" id="alamat" name="alamat" placeholder="Enter your address" required>{{ old('alamat') }}</textarea>
+                                @error('alamat')
+                                    <span class="text-danger">{{ $message }}</span>
+                                @enderror
+                            </div>
+                            
+                            <div class="mb-3">
+                                <label for="foto" class="form-label">Foto</label>
+                                <input type="file" class="form-control" id="foto" name="foto" />
+                                @error('foto')
+                                    <span class="text-danger">{{ $message }}</span>
+                                @enderror
+                            </div>
+                            
                             <div class="mb-3 form-password-toggle">
                                 <label class="form-label" for="password">Password</label>
                                 <div class="input-group input-group-merge">
-                                    <input type="password" id="password" class="form-control" name="password"
-                                        placeholder="••••••••••••" aria-describedby="password" required />
+                                    <input type="password" id="password" class="form-control" name="password" placeholder="••••••••••••" aria-describedby="password" required />
                                     <span class="input-group-text cursor-pointer"><i class="bx bx-hide"></i></span>
                                 </div>
                                 @error('password')
                                     <span class="text-danger">{{ $message }}</span>
                                 @enderror
                             </div>
+                            
                             <div class="mb-3">
                                 <label class="form-label" for="password_confirmation">Confirm Password</label>
                                 <div class="input-group input-group-merge">
-                                    <input type="password" id="password_confirmation" class="form-control"
-                                        name="password_confirmation" placeholder="••••••••••••" required />
+                                    <input type="password" id="password_confirmation" class="form-control" name="password_confirmation" placeholder="••••••••••••" required />
                                     <span class="input-group-text cursor-pointer"><i class="bx bx-hide"></i></span>
                                 </div>
                             </div>
-                     
+                            
                             <div class="mb-3">
                                 <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" id="terms-conditions"
-                                        name="terms" required />
+                                    <input class="form-check-input" type="checkbox" id="terms-conditions" name="terms" required />
                                     <label class="form-check-label" for="terms-conditions">
-                                        I agree to
-                                        <a href="javascript:void(0);">privacy policy & terms</a>
+                                        I agree to <a href="javascript:void(0);">privacy policy & terms</a>
                                     </label>
                                 </div>
                             </div>
+                            
                             <button class="btn btn-primary d-grid w-100">Sign up</button>
                         </form>
+                        
 
                         <p class="text-center">
                             <span>Already have an account?</span>
