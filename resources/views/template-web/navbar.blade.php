@@ -2,7 +2,7 @@
     <div class="container">
         <a class="navbar-brand" href="/">
             {{-- <i class="bi-back"></i> --}}
-            <span>Nutriguide</span>
+            <span class="text-white">Nutriguide</span>
         </a>
 
         <div class="d-lg-none ms-auto me-4">

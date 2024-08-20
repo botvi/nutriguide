@@ -10,7 +10,8 @@ use App\Http\Controllers\{
     PetugasGiziController,
     MealPlansController,
     WebController,
-    ProfilController
+    ProfilController,
+    CekController
 };
 use App\Models\DataAnak;
 
@@ -79,5 +80,14 @@ Route::group(['middleware' => ['role:user']], function () {
 Route::get('/profilsaya', [ProfilController::class, 'index'])->name('profil');
 Route::get('/profil/tambah-data', [ProfilController::class, 'tambahanak']);
 Route::post('/profil/tambah-data', [ProfilController::class, 'tambahData'])->name('profil.tambahData');
+
+// Rute untuk menampilkan halaman cek kebutuhan balita
+Route::get('/cek', [CekController::class, 'index'])->name('cek.index');
+
+// Rute untuk memfilter data berdasarkan balita yang dipilih
+Route::get('/cek/filter', [CekController::class, 'filter'])->name('cek.filter');
 });
+
+
+
 // WEB

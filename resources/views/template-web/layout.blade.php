@@ -39,7 +39,7 @@ https://templatemo.com/tm-590-topic-listing
            @yield('content')
            
           </main>
-          @include('template-web.footer')
+          {{-- @include('template-web.footer') --}}
 
           @include('sweetalert::alert')
 

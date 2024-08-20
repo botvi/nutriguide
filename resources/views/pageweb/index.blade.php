@@ -33,7 +33,7 @@
 
                                 <p class="text-white">Cek Kebutuhan Nutrisi,Pemantauan Gizi,Info Menu Sehat dan Rekomendasi Menu Sehat.</p>
 
-                                <a href="topics-detail.html" class="btn custom-btn mt-2 mt-lg-3">CEK SEKARANG</a>
+                                <a href="/cek" class="btn custom-btn mt-2 mt-lg-3">CEK SEKARANG</a>
                             </div>
 
                         </div>
