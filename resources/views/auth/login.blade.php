@@ -1,145 +1,112 @@
 <!DOCTYPE html>
+<html class="dark-style customizer-hide" data-assets-path="{{ asset('admin') }}/assets/"
+    data-template="vertical-menu-template-free" data-theme="theme-dark" dir="ltr" lang="en">
 
-<!-- =========================================================
-* Sneat - Bootstrap 5 HTML Admin Template - Pro | v1.0.0
-==============================================================
-
-* Product Page: https://themeselection.com/products/sneat-bootstrap-html-admin-template/
-* Created by: ThemeSelection
-* License: You must have a valid license purchased in order to legally use the theme for your project.
-* Copyright ThemeSelection (https://themeselection.com)
-
-=========================================================
- -->
-<!-- beautify ignore:start -->
-<html
-  lang="en"
-  class="light-style customizer-hide"
-  dir="ltr"
-  data-theme="theme-default"
-  data-assets-path="{{ asset('admin') }}/assets/"
-  data-template="vertical-menu-template-free"
->
-  <head>
+<head>
     <meta charset="utf-8" />
-    <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0"
-    />
+    <meta content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0"
+        name="viewport" />
 
     <title>Login - NUTRIGUIDE</title>
 
-    <meta name="description" content="" />
+    <meta content="" name="description" />
 
     <!-- Favicon -->
-    <link rel="icon" type="image/x-icon" href="{{ asset('env') }}/nutriguide.png" />
+    <link href="{{ asset('env') }}/nutriguide.png" rel="icon" type="image/x-icon" />
 
     <!-- Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com" rel="preconnect" />
+    <link crossorigin href="https://fonts.gstatic.com" rel="preconnect" />
     <link
-      href="https://fonts.googleapis.com/css2?family=Public+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap"
-      rel="stylesheet"
-    />
+        href="https://fonts.googleapis.com/css2?family=Public+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap"
+        rel="stylesheet" />
 
     <!-- Icons. Uncomment required icon fonts -->
-    <link rel="stylesheet" href="{{ asset('admin') }}/assets/vendor/fonts/boxicons.css" />
+    <link href="{{ asset('admin') }}/assets/vendor/fonts/boxicons.css" rel="stylesheet" />
 
     <!-- Core CSS -->
-    <link rel="stylesheet" href="{{ asset('admin') }}/assets/vendor/css/core.css" class="template-customizer-core-css" />
-    <link rel="stylesheet" href="{{ asset('admin') }}/assets/vendor/css/theme-default.css" class="template-customizer-theme-css" />
-    <link rel="stylesheet" href="{{ asset('admin') }}/assets/css/demo.css" />
+    <link class="template-customizer-core-css" href="{{ asset('admin') }}/assets/vendor/css/core.css"
+        rel="stylesheet" />
+    <link class="template-customizer-theme-css" href="{{ asset('admin') }}/assets/vendor/css/theme-default.css"
+        rel="stylesheet" />
+    <link href="{{ asset('admin') }}/assets/css/demo.css" rel="stylesheet" />
 
     <!-- Vendors CSS -->
-    <link rel="stylesheet" href="{{ asset('admin') }}/assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.css" />
+    <link href="{{ asset('admin') }}/assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.css" rel="stylesheet" />
 
     <!-- Page CSS -->
     <!-- Page -->
-    <link rel="stylesheet" href="{{ asset('admin') }}/assets/vendor/css/pages/page-auth.css" />
+    <link href="{{ asset('admin') }}/assets/vendor/css/pages/page-auth.css" rel="stylesheet" />
     <!-- Helpers -->
     <script src="{{ asset('admin') }}/assets/vendor/js/helpers.js"></script>
 
     <!--! Template customizer & Theme config files MUST be included after core stylesheets and helpers.js in the <head> section -->
     <!--? Config:  Mandatory theme config file contain global vars & default theme options, Set your preferred theme option in this file.  -->
     <script src="{{ asset('admin') }}/assets/js/config.js"></script>
-  </head>
+</head>
 
-  <body>
+<body class="bg-dark text-light">
     <!-- Content -->
 
     <div class="container-xxl">
-      <div class="authentication-wrapper authentication-basic container-p-y">
-        <div class="authentication-inner">
-          <!-- Register -->
-          <div class="card">
-            <div class="card-body">
-              <!-- Logo -->
-              <div class="app-brand justify-content-center">
-                <a href="index.html" class="app-brand-link gap-2">
-                 <img src="{{ asset('env') }}/nutriguide.png" width="30px" srcset="">
-                  <span class="app-brand-text demo text-body fw-bolder">Login</span>
-                </a>
-              </div>
-              <!-- /Logo -->
-              <h4 class="mb-2">Selamat datang di NutriGuide! 👋</h4>
+        <div class="authentication-wrapper authentication-basic container-p-y">
+            <div class="authentication-inner">
+                <!-- Register -->
+                <div class="card bg-dark text-light">
+                    <div class="card-body">
+                        <!-- Logo -->
+                        <div class="app-brand justify-content-center">
+                            <a class="app-brand-link gap-2" href="index.html">
+                                <img src="{{ asset('env') }}/nutriguide.png" srcset="" width="30px">
+                                <span class=" demo text-body fw-bolder" style="font-size: 2rem">LOGIN</span>
+                            </a>
+                        </div>
 
-              <form id="formAuthentication" class="mb-3"action="{{ route('login') }}" method="POST">
+                        <form class="mb-3"action="{{ route('login') }}" id="formAuthentication" method="POST">
+                            @csrf
 
-                @csrf
+                            <div class="mb-3">
+                                <label class="form-label" for="email">EMAIL</label>
+                                <input autofocus class="form-control bg-dark text-light" id="email" name="email"
+                                    placeholder="Enter your email" style="color:#fff" type="text" />
+                            </div>
+                            <div class="mb-3 form-password-toggle">
+                                <div class="d-flex justify-content-between">
+                                    <label class="form-label" for="password" style="color:#fff">PASSWORD</label>
+                                </div>
+                                <div class="input-group input-group-merge">
+                                    <input aria-describedby="password" class="form-control bg-dark text-light"
+                                        id="password" name="password"
+                                        placeholder="&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;"
+                                        type="password" />
+                                    <span class="input-group-text cursor-pointer bg-dark text-light"><i
+                                            class="bx bx-hide"></i></span>
+                                </div>
+                            </div>
+                            {{-- <div class="mb-3">
+                                <div class="form-check">
+                                    <input class="form-check-input" id="remember-me" type="checkbox" />
+                                    <label class="form-check-label" for="remember-me"> Remember Me </label>
+                                </div>
+                            </div> --}}
+                            <div class="mb-3">
+                                <button class="btn btn-primary d-grid w-100" type="submit">Sign in</button>
+                            </div>
+                        </form>
 
-                <div class="mb-3">
-                  <label for="email" class="form-label">Email</label>
-                  <input
-                    type="text"
-                    class="form-control"
-                    id="email"
-                    name="email"
-                    placeholder="Enter your email"
-                    autofocus
-                  />
+                        <p class="text-center">
+                            <span>Sudah ada akun?</span>
+                            <a href="/register">
+                                <span>Buat Akun Baru</span>
+                            </a>
+                        </p>
+                    </div>
                 </div>
-                <div class="mb-3 form-password-toggle">
-                  <div class="d-flex justify-content-between">
-                    <label class="form-label" for="password">Password</label>
-                  </div>
-                  <div class="input-group input-group-merge">
-                    <input
-                      type="password"
-                      id="password"
-                      class="form-control"
-                      name="password"
-                      placeholder="&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;"
-                      aria-describedby="password"
-                    />
-                    <span class="input-group-text cursor-pointer"><i class="bx bx-hide"></i></span>
-                  </div>
-                </div>
-                <div class="mb-3">
-                  <div class="form-check">
-                    <input class="form-check-input" type="checkbox" id="remember-me" />
-                    <label class="form-check-label" for="remember-me"> Remember Me </label>
-                  </div>
-                </div>
-                <div class="mb-3">
-                  <button class="btn btn-primary d-grid w-100" type="submit">Sign in</button>
-                </div>
-              </form>
-
-              <p class="text-center">
-                <span>New on our platform?</span>
-                <a href="/register">
-                  <span>Create an account</span>
-                </a>
-              </p>
+                <!-- /Register -->
             </div>
-          </div>
-          <!-- /Register -->
         </div>
-      </div>
     </div>
 
-    
-    
     <!-- Core JS -->
     <!-- build:js assets/vendor/js/core.js -->
     @include('sweetalert::alert')
@@ -160,5 +127,6 @@
 
     <!-- Place this tag in your head or just before your close body tag. -->
     <script async defer src="https://buttons.github.io/buttons.js"></script>
-  </body>
+</body>
+
 </html>
