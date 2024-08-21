@@ -19,6 +19,12 @@
                 <div data-i18n="Analytics">Dashboard</div>
             </a>
         </li>
+        <li class="menu-item {{ Request::is('penyuluhan') ? 'active' : '' }}">
+            <a href="/penyuluhan" class="menu-link">
+                <i class="menu-icon tf-icons bx bxs-pen"></i>
+                <div data-i18n="Analytics">Penyuluhan</div>
+            </a>
+        </li>
 
         <li class="menu-header small text-uppercase"><span class="menu-header-text">Data Master</span></li>
         <li class="menu-item {{ Request::is('data-petugas') ? 'active' : '' }}">
@@ -47,7 +53,13 @@
                 <div data-i18n="Analytics">Menu Makanan</div>
             </a>
         </li>
-        
+        <li class="menu-header small text-uppercase"><span class="menu-header-text">Laporam</span></li>
+        <li class="menu-item {{ Request::is('laporan') ? 'active' : '' }}">
+            <a href="/laporan" class="menu-link">
+                <i class="menu-icon tf-icons bx bxs-user-detail"></i>
+                <div data-i18n="Analytics">Laporan Ibu dan Balita</div>
+            </a>
+        </li>
         
     </ul>
 </aside>

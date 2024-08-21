@@ -15,9 +15,21 @@
 
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav ms-lg-5 me-lg-auto">
-                {{-- <li class="nav-item">
-                    <a class="nav-link click-scroll" href="#section_1">Home</a>
-                </li> --}}
+                <li class="nav-item">
+                    <a class="nav-link click-scroll" href=""></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link click-scroll" href="/">Home</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link click-scroll" href="/penyuluhanweb">Penyuluhan</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link click-scroll" href="/tentang">Tentang</a>
+                </li>
+
 
               
             </ul>

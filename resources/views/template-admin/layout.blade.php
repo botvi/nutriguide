@@ -60,6 +60,7 @@ href="https://fonts.googleapis.com/css2?family=Public+Sans:ital,wght@0,300;0,400
     <!--! Template customizer & Theme config files MUST be included after core stylesheets and helpers.js in the <head> section -->
     <!--? Config:  Mandatory theme config file contain global vars & default theme options, Set your preferred theme option in this file.  -->
     <script src="{{ asset('admin') }}/assets/js/config.js"></script>
+    @yield('style')
   </head>
 
   <body class="">

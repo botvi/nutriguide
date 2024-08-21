@@ -11,7 +11,9 @@ use App\Http\Controllers\{
     MealPlansController,
     WebController,
     ProfilController,
-    CekController
+    CekController,
+    PenyuluhanController,
+    LaporanController
 };
 use App\Models\DataAnak;
 
@@ -67,6 +69,11 @@ Route::delete('/anak/{id}', [DataAnakController::class, 'destroy'])->name('anak.
 
 Route::resource('mealplans', MealPlansController::class);
 
+Route::get('/penyuluhan', [PenyuluhanController::class, 'index'])->name('penyuluhan.index');
+Route::post('/penyuluhan/storeOrUpdate', [PenyuluhanController::class, 'storeOrUpdate'])->name('penyuluhan.storeOrUpdate');
+
+
+Route::get('/laporan', [LaporanController::class, 'index'])->name('laporan.index');
 });
 // ADMIN
 
@@ -74,6 +81,7 @@ Route::resource('mealplans', MealPlansController::class);
 // WEB
 
 Route::get('/', [WebController::class, 'index'])->name('home');
+Route::get('/tentang', [WebController::class, 'tentang'])->name('tentang');
 
 
 Route::group(['middleware' => ['role:user']], function () {
@@ -88,6 +96,7 @@ Route::get('/cek', [CekController::class, 'index'])->name('cek.index');
 Route::get('/cek/filter', [CekController::class, 'filter'])->name('cek.filter');
 });
 
+Route::get('/penyuluhanweb', [PenyuluhanController::class, 'showPenyuluhan'])->name('webview');
 
 
 // WEB

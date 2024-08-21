@@ -9,4 +9,7 @@ class WebController extends Controller
     public function index(){
         return view('pageweb.index');
     }
+    public function tentang(){
+        return view('pageweb.tentang');
+    }
 }
