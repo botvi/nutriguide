@@ -74,6 +74,7 @@ Route::post('/penyuluhan/storeOrUpdate', [PenyuluhanController::class, 'storeOrU
 
 
 Route::get('/laporan', [LaporanController::class, 'index'])->name('laporan.index');
+Route::get('/cek-data', [LaporanController::class, 'showCekData'])->name('cek.showData');
 });
 // ADMIN
 

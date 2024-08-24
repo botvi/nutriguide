@@ -60,6 +60,12 @@
                 <div data-i18n="Analytics">Laporan Ibu dan Balita</div>
             </a>
         </li>
+        <li class="menu-item {{ Request::is('cek-data') ? 'active' : '' }}">
+            <a href="/cek-data" class="menu-link">
+                <i class="menu-icon tf-icons bx bxs-user-detail"></i>
+                <div data-i18n="Analytics">Laporan Cek Kebutuhan</div>
+            </a>
+        </li>
         
     </ul>
 </aside>

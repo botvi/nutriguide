@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\MealPlans;
 use App\Models\DataBalita;
+use App\Models\DataCek;
 use Illuminate\Support\Facades\Auth;
 
 class CekController extends Controller
@@ -24,6 +25,17 @@ class CekController extends Controller
             if ($selectedBalita) {
                 // Ambil MealPlans berdasarkan rentang_umur dari DataBalita yang dipilih
                 $mealPlans = MealPlans::where('rentang_umur', $selectedBalita->rentang_umur)->get();
+
+                // Simpan data ke dalam DataCek
+                foreach ($mealPlans as $plan) {
+                    DataCek::create([
+                        'user_id' => $selectedBalita->id, // Menggunakan ID Balita yang dipilih
+                        'rentang_umur' => $plan->rentang_umur,
+                        'waktu_makan' => $plan->waktu_makan,
+                        'menu' => $plan->menu,
+                        'bahan_makanan' => $plan->bahan_makanan,
+                    ]);
+                }
             } else {
                 // Jika ID balita tidak valid, kembalikan koleksi kosong
                 $mealPlans = collect();
